@@ -6,10 +6,10 @@ import './styles.css';
 const Index = () => {
   return (
     <nav className='navbar'>
-      <h1>Contact Manager</h1>
+      <Link to = "/"><h1>Contact Manager</h1></Link>
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/create" className='button'>Add Contact</Link>
+        <Link to="../ContactForm/index.jsx" className='button'>Add Contact</Link>
       </div>
     </nav>
   );
