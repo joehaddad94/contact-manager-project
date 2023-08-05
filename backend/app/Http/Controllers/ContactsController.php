@@ -20,6 +20,7 @@ class ContactsController extends Controller {
                     'name' => $contact->name,
                     'phone' => $contact->phone,
                     'latitude' => $contact->latitude,
+                    'longitude' => $contact->longitude,
                     'created_at' => $contact->created_at,
                     'updated_at' => $contact->updated_at,
                 ];
@@ -31,8 +32,7 @@ class ContactsController extends Controller {
         }
     }
 
-    function addContacts(Response $response) {
-
+    function addContact(Request $request) {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
@@ -51,15 +51,7 @@ class ContactsController extends Controller {
 
             return response()->json([
                 'message' => 'Contact added successfully',
-                'contact' => [
-                    'id' => $contact->id,
-                    'name' => $contact->name,
-                    'phone' => $contact->phone,
-                    'latitude' => $contact->latitude,
-                    'longitude' => $contact->longitude,
-                    'created_at' => $contact->created_at,
-                    'updated_at' => $contact->updated_at,
-                ],
+                'contact' => $contact,
             ]);
         } catch (Throwable $e) {
             return response()->json([
@@ -68,7 +60,7 @@ class ContactsController extends Controller {
         }
     }
 
-    function editContacts(Response $response, $id) {
+    function editContact(Request $request, $id) {
 
         $contact = Contact::find($id);
 
