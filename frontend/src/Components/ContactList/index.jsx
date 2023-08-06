@@ -29,7 +29,7 @@ const ContactList = () => {
       <section>
         <div className="card-container">
           <h1>All Contacts</h1>
-             {cards && <ContactCard cards={cards}/>}
+             {cards && <ContactCard cards={cards.contacts}/>}
         </div>
       </section>
     );

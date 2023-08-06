@@ -5,6 +5,7 @@ import ContactList from './Components/ContactList';
 
 
 import './App.css';
+import ContactForm from './Components/ContactForm';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <div className="content">
           <Routes>
             <Route path = "/">
-              <Route index element = {<ContactList/>}/> 
+              <Route index element = {<ContactList/>}/>
+              <Route path = "/xyz" element = {<ContactForm/>}/>
             </Route>
           </Routes>
         </div>
