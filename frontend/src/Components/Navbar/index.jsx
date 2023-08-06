@@ -9,7 +9,7 @@ const Index = () => {
       <Link to = "/"><h1>Contact Manager</h1></Link>
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/xyz" className='button'>Add Contact</Link>
+        <Link to="/ContactForm" className='button'>Add Contact</Link>
       </div>
     </nav>
   );

@@ -11,13 +11,13 @@ const ContactCard = ({ cards }) => {
               cards.map((card) => (
                 <div className='card-preview' key={card.id}>
                   <h2>{card.name}</h2>
-                  <h3>Phone Number: <span>{card.phone}</span></h3>
+                  <h3>Phone Number: <br/><span>{card.phone}</span></h3>
                   <h4>Address:</h4>
                   <ul>
                     <li>Latitude: <span>{card.latitude}</span> </li>
                     <li>Longitude: <span>{card.longitude}</span></li>
                   </ul>
-                  <button className='edit-button'>Edit Contact</button>
+                  {/* <button className='edit-button'>Edit Contact</button> */}
                   <button className='delete-button'>Delete Contact</button>
                 </div>
               ))

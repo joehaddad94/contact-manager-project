@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path = "/">
               <Route index element = {<ContactList/>}/>
-              <Route path = "/xyz" element = {<ContactForm/>}/>
+              <Route path = "/ContactForm" element = {<ContactForm/>}/>
             </Route>
           </Routes>
         </div>
