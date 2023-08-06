@@ -21,7 +21,7 @@ const ContactCard = ({ cards, handleDeleteContact  }) => {
   };
 
   return (
-    <section>
+    <section >
       <div className="card-container">
 
         <div className="cards">
