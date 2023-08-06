@@ -6,6 +6,7 @@ import ContactList from './Components/ContactList';
 
 import './App.css';
 import ContactForm from './Components/ContactForm';
+import MapModal from './Components/MapModal';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path = "/">
               <Route index element = {<ContactList/>}/>
               <Route path = "/ContactForm" element = {<ContactForm/>}/>
+              <Route path = "/MapModal" element = {<MapModal/>}/>
             </Route>
           </Routes>
         </div>
