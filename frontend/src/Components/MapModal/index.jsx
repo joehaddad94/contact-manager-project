@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import './styles.css';
 
-const position = [51.505, -0.09]
 const MapModal = ({ latitude, longitude, modalVisible, closeModal }) => {
 
     const position = [latitude, longitude]
@@ -14,7 +13,6 @@ const MapModal = ({ latitude, longitude, modalVisible, closeModal }) => {
     <div>
       {modalVisible && (
         <div className="modal">
-          {/* <div onClick={closeModal} className="overlay"> */}
           <div className="overlay">
             <div className="modal-content">
             <button className='close-button' onClick={closeModal}>Close</button>
@@ -29,7 +27,6 @@ const MapModal = ({ latitude, longitude, modalVisible, closeModal }) => {
             </Popup>
             </Marker>
              </MapContainer>
-              
             </div>
           </div>
         </div>

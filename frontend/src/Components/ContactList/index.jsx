@@ -12,8 +12,7 @@ const ContactList = () => {
       setContactsData(cards.contacts);
     }
   }, [cards]);
-
-  // Function to handle contact deletion
+  
   const handleDeleteContact = (id) => {
     fetch('http://127.0.0.1:8000/api/delete_contact/' + id, {
       method: 'DELETE',
@@ -26,7 +25,6 @@ const ContactList = () => {
       })
       .then((data) => {
         console.log(data);
-        // After successful deletion, update the 'contactsData' state without the deleted contact
         setContactsData((prevData) => prevData.filter((contact) => contact.id !== id));
       })
       .catch((error) => {
@@ -38,7 +36,6 @@ const ContactList = () => {
     <section>
       <div className="card-container">
         <h1>All Contacts</h1>
-        {/* Pass the updated 'contactsData' to the ContactCard */}
         <ContactCard cards={contactsData} handleDeleteContact={handleDeleteContact} />
       </div>
     </section>

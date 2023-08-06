@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/index';
 import ContactList from './Components/ContactList';
 
-
 import './App.css';
 import ContactForm from './Components/ContactForm';
 import MapModal from './Components/MapModal';
