@@ -3,24 +3,6 @@ import './styles.css';
 
 const ContactCard = ({ cards, handleDeleteContact  }) => {
 
-//   const handleClick = (id) => {
-//     fetch('http://127.0.0.1:8000/api/delete_contact/' + id, {
-//         method: 'DELETE'
-//     })
-//     .then(res => {
-//       if(!res.ok) {
-//           throw Error('Could not delete');
-//       }
-//       return res.json()
-//   })
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
-// }
-
   return (
     <section>
       <div className="card-container">
@@ -31,7 +13,11 @@ const ContactCard = ({ cards, handleDeleteContact  }) => {
                 <div className='card-preview' key={card.id}>
                   <h2>{card.name}</h2>
                   <h3>Phone Number: <br/><span>{card.phone}</span></h3>
-                  <h4>Address:</h4>
+                  <div className='address-img-container'>
+                  <h4>Address: </h4>
+                  <img src="../../../public/map-icon.png" alt="Map Icon" />
+                  </div>
+                  
                   <ul>
                     <li>Latitude: <span>{card.latitude}</span> </li>
                     <li>Longitude: <span>{card.longitude}</span></li>

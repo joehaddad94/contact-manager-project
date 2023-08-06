@@ -90,3 +90,9 @@
 .edit-button:hover {
   background-color: #f1356d;
 }
+
+.address-img-container {
+  display: flex;
+  align-items: center;
+  gap: 4%;
+}
