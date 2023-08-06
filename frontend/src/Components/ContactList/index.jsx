@@ -1,38 +1,48 @@
 import { useState, useEffect } from 'react';
-
-import ContactCard from '../ContactCard/index'
+import ContactCard from '../ContactCard/index';
 import './styles.css';
 import useFetch from '../../useFetch';
 
-const ContactList = () => { 
+const ContactList = () => {
+  const { data: cards, error } = useFetch('http://127.0.0.1:8000/api/get_all_contacts');
+  const [contactsData, setContactsData] = useState([]);
+  
+  useEffect(() => {
+    if (cards) {
+      setContactsData(cards.contacts);
+    }
+  }, [cards]);
 
-  const {data: cards, error} = useFetch('http://127.0.0.1:8000/api/get_all_contacts')
-
-  // const [cards, setCards] = useState([]);
-
-    // useEffect(() =>{
-    //   fetch('http://127.0.0.1:8000/api/get_all_contacts', {
-    //     headers: {
-    //       'Accept': 'application/json'
-    //     }
-    //   })
-    //   .then(res => {
-    //     return res.json()
-    //   })
-    //   .then(data => {
-    //     console.log(data)
-    //     setCards(data)
-    //   })
-    // }, []);
-
-    return (
-      <section>
-        <div className="card-container">
-          <h1>All Contacts</h1>
-             {cards && <ContactCard cards={cards.contacts}/>}
-        </div>
-      </section>
-    );
-  }
+  // Function to handle contact deletion
+  const handleDeleteContact = (id) => {
+    fetch('http://127.0.0.1:8000/api/delete_contact/' + id, {
+      method: 'DELETE',
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw Error('Could not delete');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        // After successful deletion, update the 'contactsData' state without the deleted contact
+        setContactsData((prevData) => prevData.filter((contact) => contact.id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
+  return (
+    <section>
+      <div className="card-container">
+        <h1>All Contacts</h1>
+        {/* Pass the updated 'contactsData' to the ContactCard */}
+        <ContactCard cards={contactsData} handleDeleteContact={handleDeleteContact} />
+      </div>
+    </section>
+  );
+};
 
   export default ContactList;

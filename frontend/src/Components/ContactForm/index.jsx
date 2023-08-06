@@ -52,10 +52,10 @@ const ContactForm = () => {
                 <input type="tel" className= "input-group__input" required value={ phone }  onChange={(e) => setPhone(e.target.value)}/>
 
                 <label className= "input-group__label">Latitude: </label>
-                <input type="text" className= "input-group__input" required value={ latitude }  onChange={(e) => setLatitude(e.target.value)}/>
+                <input type="text" className= "input-group__input" maxLength="10" required value={ latitude }  onChange={(e) => setLatitude(e.target.value)}/>
 
                 <label className= "input-group__label">Longitude: </label>
-                <input type="text" className= "input-group__input" required value={ longitude } onChange={(e) => setLongitude(e.target.value)}/>
+                <input type="text" className= "input-group__input" maxLength="11" required value={ longitude } onChange={(e) => setLongitude(e.target.value)}/>
 
                 <div className='button-container'>
                     <button onClick={navigateHome}>Save Contact</button>
